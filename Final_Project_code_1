@@ -1,8 +1,12 @@
-movies_data = read.csv("C:/Users/Dharshni/Desktop/ml-1m/movies.dat",sep= "|", stringsAsFactors = F, header = FALSE)
-names(movies_data) = c("s/NO","Movie_Name","Genre 1","Genre 2","Genre 3")
+
 
 /* Read the Movies dataset into table */
 movies_data = read.csv("./movies1.dat",sep= "_", stringsAsFactors = F, header = FALSE)
 movies_data = cbind(movies_data,str_split_fixed(movies_data$V3, "[|]", 6))
 names(movies_data) = c("s/NO","Movie_Name","Genres","Genre 1","Genre 2","Genre 3","Genre 4","Genre 5","Genre 6")
+
+/* Read the Users dataset into table */
+users_data = read.csv("./users.dat",sep= "_", stringsAsFactors = F, header = FALSE)
+names(users_data) = c("UserID","Gender","Age","Occupation","Zip-code")
+
 
