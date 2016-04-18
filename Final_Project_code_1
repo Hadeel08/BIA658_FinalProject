@@ -1,4 +1,3 @@
-
 /* Read the Movies dataset into table */
 movies_data = read.csv("./movies1.dat",sep= "_", stringsAsFactors = F, header = FALSE)
 movies_data = cbind(movies_data,str_split_fixed(movies_data$V3, "[|]", 6))
