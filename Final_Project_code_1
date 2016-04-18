@@ -1,1 +1,2 @@
-
+movies_data = read.csv("C:/Users/Dharshni/Desktop/ml-1m/movies.dat",sep= "|", stringsAsFactors = F, header = FALSE)
+names(movies_data) = c("s/NO","Movie_Name","Genre 1","Genre 2","Genre 3")
