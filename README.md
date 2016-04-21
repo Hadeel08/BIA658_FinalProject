@@ -6,3 +6,4 @@ Features to study:
    2. Age.
    3. Gender.
    4. Occupation.
+   5. Timestamps.
