@@ -1,7 +1,9 @@
 /* Read the Movies dataset into table */
-movies_data = read.csv("./movies.dat",sep= "_", stringsAsFactors = F, header = FALSE)
-movies_data = cbind(movies_data,str_split_fixed(movies_data$V3, "[|]", 6))
-names(movies_data) = c("MovieID","Movie_Name","Genres","Genre 1","Genre 2","Genre 3","Genre 4","Genre 5","Genre 6")
+  movies_data = read.csv("./movies.dat",sep= "_", stringsAsFactors = F, header = FALSE)
+  movies_data = cbind(movies_data,gsub("'s","",movies_data$V3))
+  #Clean Generes from "'s" like "Children's"
+  movies_data = cbind(movies_data,str_split_fixed(movies_data$`gsub("'s", "", movies_data$V3)`, "[|]", 6))
+  names(movies_data) = c("MovieID","Movie_Name","Genres","CleanedGeneres","Genre 1","Genre 2","Genre 3","Genre 4","Genre 5","Genre 6")
 
 /* Read the Ratings dataset into table */
 ratings_data = read.csv("./ratings.dat",sep= "_", stringsAsFactors = F, header = FALSE)
