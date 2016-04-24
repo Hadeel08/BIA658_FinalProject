@@ -1,0 +1,22 @@
+require(ggplot2)
+require(scales)
+library(plyr)
+library(RColorBrewer)
+library(grid)  
+  
+  #age analysis
+  mlDat_user <- ddply(users_data, ~users_data$UserID + users_data$Age + users_data$gender + users_data$occupation, summarize, 
+                      mean_rating = mean(ratings_data$rating))
+  agePlot <- ggplot(users_data, aes(users_data$Age)) + geom_histogram(aes(y = ..density..), binwidth = 1, colour = "black", fill = "white")
+  agePlot <- agePlot + geom_density(alpha=0.2, fill = "#FF6666")
+  print(agePlot)
+  ggsave(filename = "C:/Users/Dharshni/Desktop/ml-1m/agePlot.pdf")
+  
+  
+  #Ratings summary
+   summary(ratings_data$Rating)
+  p = ggplot(data=ratings_data, aes(x=Rating))
+  p = p + geom_histogram()
+  p = p + scale_y_continuous(labels= scales::comma)
+  p = p + xlab('Rating') + ylab('Count')
+  ggsave(p, file="C:/Users/Dharshni/Desktop/ml-1m/rating_dist.pdf", width=4, height=4)
