@@ -1,4 +1,4 @@
-/* Read the Movies dataset into table */
+# Read the Movies dataset into table */
   movies_data = read.csv("./movies.dat",sep= "_", stringsAsFactors = F, header = FALSE)
   movies_data = cbind(movies_data,gsub("'s","",movies_data$V3))
   #Clean Generes from "'s" like "Children's"
